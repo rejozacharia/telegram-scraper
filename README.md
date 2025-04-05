@@ -36,3 +36,14 @@ The main goal of this project is to automate the monitoring of a Telegram channe
   ```bash
   pip install -r requirements.txt
 
+ ## Configuration
+
+This project uses a separate secrets file for sensitive API credentials and configuration. To set up your environment:
+
+1. Navigate to the `config/` directory.
+2. Copy `secrets_example.json` to `secrets.json`.
+3. Edit `secrets.json` and fill in your API credentials, phone number, channel username, bot token, and recipient IDs.
+
+These credentials will be loaded by the script at runtime, ensuring that sensitive information is not included in the public repository.
+
+
