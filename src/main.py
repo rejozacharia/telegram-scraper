@@ -16,7 +16,7 @@ with open(os.path.join(os.path.dirname(__file__), "../config/secrets.json")) as 
 api_id = secrets["api_id"]
 api_hash = secrets["api_hash"]
 phone = secrets["phone"]
-channel_username = secrets["channel_username"]
+channel_name = secrets["channel_name"]
 bot_token = secrets["bot_token"]
 recipient_ids = secrets["recipient_ids"]
 
@@ -59,7 +59,7 @@ def send_message_via_bot(photo_path, found_words, found_dates):
 
 async def fetch_messages(client):
     # Get the channel entity
-    channel = await client.get_entity(channel_username)
+    channel = await client.get_entity(channel_name)
     last_message_id = None
 
     while True:
@@ -67,7 +67,7 @@ async def fetch_messages(client):
             messages = await client.get_messages(channel, limit=100)
             for message in messages:
                 if last_message_id is None or message.id > last_message_id:
-                    logger.info(f"New message from {channel_username} at {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}")
+                    logger.info(f"New message from {channel_name} at {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}")
 
                     if message.photo:
                         photo_path = await message.download_media()
