@@ -17,7 +17,9 @@ The main goal of this project is to automate the monitoring of a Telegram channe
    When a message contains an image, the script downloads it and uses [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) (via the [pytesseract](https://pypi.org/project/pytesseract/) library) to extract text.
 
 3. **Keyword & Date Filtering:**  
-   The extracted text is checked for specific keywords (e.g., days of the week, "Time", "Availability") and date patterns (in various formats). The script only sends notifications if the keywords are found and if the text does **not** include phrases such as "No Slots Available" or "Scheduled Website Maintenance".
+   The extracted text is checked for specific keywords (e.g., days of the week, "Time", "Availability") and date patterns (in various formats). The script only sends notifications if the keywords are found and if the text does **not** include phrases such as "No Slots Available" or "Scheduled Website Maintenance". 
+
+   Obviously, the above keywords are just an example. The code can be adapted to look for any text/image format etc.
 
 4. **Notification:**  
    A Telegram Bot (using the Bot API) sends the notification message and image to predefined recipient chat IDs.
